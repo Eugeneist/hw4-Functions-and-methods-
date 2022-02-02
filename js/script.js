@@ -21,3 +21,17 @@ alert(capitalizeFirstLetter(userText));
 
 
 // ЗАДАЧА 3
+
+let str = prompt("Введите строку");
+let maxlength = prompt("Введите максимальную длинну строки!");
+
+function truncate(str, maxlength) {
+    if (str.length <= maxlength){
+        return str;
+    } else {
+        return str.substr(0, maxlength) + "...";
+    }
+}
+
+console.log(truncate(str, maxlength));
+
