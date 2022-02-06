@@ -70,6 +70,19 @@ const getAvarageMark = (array) => {
 getAvarageMark(students);
 
 
+const getGlobAvarMark = (array) => {
+    let averageGlobal = 0;
+    let sumGlobal = 0;
+    let GlobAvarMark = 0;
+    array.forEach(object => {
+        averageGlobal = object.marks.reduce((a, b) => (a + b)) / object.marks.length;
+        sumGlobal += averageGlobal;
+        GlobAvarMark = sumGlobal / array.length;
+    });
+    console.log(`Cредний балл по всем студентам: ${GlobAvarMark}`);
+}
+
+getGlobAvarMark(students);
 
 
 // ЗАДАЧА 6
