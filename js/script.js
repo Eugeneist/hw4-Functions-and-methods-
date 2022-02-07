@@ -73,16 +73,45 @@ getAvarageMark(students);
 const getGlobAvarMark = (array) => {
     let averageGlobal = 0;
     let sumGlobal = 0;
-    let GlobAvarMark = 0;
+    let globAvarMark = 0;
     array.forEach(object => {
         averageGlobal = object.marks.reduce((a, b) => (a + b)) / object.marks.length;
         sumGlobal += averageGlobal;
-        GlobAvarMark = sumGlobal / array.length;
+        globAvarMark = sumGlobal / array.length;
     });
-    console.log(`Cредний балл по всем студентам: ${GlobAvarMark}`);
+    console.log(`Cредний балл по всем студентам: ${globAvarMark}`);
 }
 
 getGlobAvarMark(students);
+
+
+// ЗАДАЧА 5
+
+const vehicles = [
+    { make: 'Honda', model: 'CR-V', type: 'suv', price: 24045 },
+    { make: 'Honda', model: 'Accord', type: 'sedan', price: 22455 },
+    { make: 'Mazda', model: 'Mazda 6', type: 'sedan', price: 24195 },
+    { make: 'Mazda', model: 'CX-9', type: 'suv', price: 31520 },
+    { make: 'Toyota', model: '4Runner', type: 'suv', price: 34210 },
+    { make: 'Toyota', model: 'Sequoia', type: 'SUV', price: 45560 },
+    { make: 'Toyota', model: 'Tacoma', type: 'truck', price: 24320 },
+    { make: 'Ford', model: 'F-150', type: 'truck', price: 27110 },
+    { make: 'Ford', model: 'Fusion', type: 'sedan', price: 22120 },
+    { make: 'Ford', model: 'Explorer', type: 'SUV', price: 31660 }
+];
+
+const getAvaragePriceSuv = (array) => {
+    let suv = array.filter(object => object.type.toLowerCase() === 'suv');
+    let globalPrice = 0;
+    let globAvarPrice = 0;
+    suv.forEach(object => {
+        globalPrice += object.price;
+        globAvarPrice = globalPrice / suv.length;
+    });
+    console.log(`Средняя цена автомобилей типа SUV: ${globAvarPrice}$`);
+}
+
+getAvaragePriceSuv(vehicles);
 
 
 // ЗАДАЧА 6
@@ -94,6 +123,7 @@ let sorted = copySorted(arr);
 
 console.log(arr); 
 console.log(sorted);
+
 
 // ЗАДАЧА 7
 
