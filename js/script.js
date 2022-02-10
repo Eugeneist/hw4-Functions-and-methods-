@@ -12,7 +12,7 @@ console.log(searchString("Hello", "www"));
 // ЗАДАЧА 2
 
 let capitalizeFirstLetter = (str) => {
-   return str[0].toUpperCase() + str.substr(1, str.length);
+    return `${str[0].toUpperCase()}${str.substr(1, str.length)}`;
 }
 
 let userText = prompt("Введите слово с маленькой буквы");
@@ -29,7 +29,7 @@ function truncate(str, maxlength) {
     if (str.length <= maxlength){
         return str;
     } else {
-        return str.substr(0, maxlength) + "...";
+        return `${str.substr(0, maxlength)}...`
     }
 }
 
@@ -62,27 +62,23 @@ const getAvarageMark = (array) => {
 
     studentsList.forEach(object => {
         let average = object.marks.reduce((a, b) => (a + b)) / object.marks.length;
-        object.averageMark = `${average}`;
+        object.averageMark = average;
     });
-    console.log(studentsList);
+    return studentsList;
 }
 
-getAvarageMark(students);
+const studentsList = getAvarageMark(students)
+console.log(studentsList);
 
 
-const getGlobAvarMark = (array) => {
-    let averageGlobal = 0;
-    let sumGlobal = 0;
-    let globAvarMark = 0;
-    array.forEach(object => {
-        averageGlobal = object.marks.reduce((a, b) => (a + b)) / object.marks.length;
-        sumGlobal += averageGlobal;
-        globAvarMark = sumGlobal / array.length;
-    });
-    console.log(`Cредний балл по всем студентам: ${globAvarMark}`);
+const getGlobalAverageMark = (array) => {
+    const avarageSum = array.map(item => item.averageMark).reduce((a, b) => a + b, 0);
+    const globAverageMark = avarageSum / array.length;
+    return globAverageMark;
 }
 
-getGlobAvarMark(students);
+const result = getGlobalAverageMark(studentsList);
+console.log(`Cредний бал по всем студентам: ${result}!`);
 
 
 // ЗАДАЧА 5
@@ -102,27 +98,25 @@ const vehicles = [
 
 const getAvaragePriceSuv = (array) => {
     let suv = array.filter(object => object.type.toLowerCase() === 'suv');
-    let globalPrice = 0;
-    let globAvarPrice = 0;
-    suv.forEach(object => {
-        globalPrice += object.price;
-        globAvarPrice = globalPrice / suv.length;
-    });
-    console.log(`Средняя цена автомобилей типа SUV: ${globAvarPrice}$`);
+    const avarageSuvSum = suv.map(item => item.price).reduce((a, b) => a + b, 0);
+    const globAverSuvPrice = avarageSuvSum / suv.length;
+    return globAverSuvPrice;
 }
 
-getAvaragePriceSuv(vehicles);
+const suvResult = getAvaragePriceSuv(vehicles);
+console.log(`Cредняя цена автомобилей типа SUV:${suvResult}$`);
 
 
 // ЗАДАЧА 6
 
 let arr = [10, 20, 3, 4, 0, 99, 97];
 
-let copySorted = (arr) => arr.slice().sort();
+let copySorted = (arr) => arr.slice().sort((a, b) => (a - b));
+
 let sorted = copySorted(arr);
 
-console.log(arr); 
 console.log(sorted);
+console.log(arr); 
 
 
 // ЗАДАЧА 7
